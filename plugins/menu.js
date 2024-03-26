@@ -173,7 +173,7 @@ text = typeof conn.menu == 'string' ? conn.menu : typeof conn.menu == 'object' ?
                         mediaType: 1,
                         previewType: 0,
                         renderLargerThumbnail: true,
-                        thumbnailUrl: 'https://telegra.ph/file/b365817c2a90760f63523.jpg',
+                        thumbnailUrl: 'https://telegra.ph/file/36bc99f4d9b3e2b8ea309.jpg',
                         sourceUrl: 'https://rieslark-web.vercel.app'
                     }
                 }, mentions: [m.sender]
