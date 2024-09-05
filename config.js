@@ -12,28 +12,28 @@ global.namebot = 'Putbotz'
 global.gc = 'https://chat.whatsapp.com/Ln2vHjRrRayAbzalRMB56r'
 global.web = 'https://github.com/Putbotz'
 global.instagram = 'https://instagram.com/whooputt'
-global.wm = '© Putbotz'
+global.wm = '© iYeen by Putbotz'
 global.watermark = wm
-global.wm2 = '⫹⫺ Putbotz'
-global.wm3 = '© Putbotz'
-global.wm4 = '© Putbotz'
+global.wm2 = '⫹⫺ iYeen by Putbotz'
+global.wm3 = '© iYeen by Putbotz'
+global.wm4 = '© iYeen by Putbotz'
 global.wait = '_*Tunggu sedang di proses...*_'
 global.eror = '_*Server Error*_'
 global.benar = 'Benar ✅\n'
 global.salah = 'Salah ❌\n'
 global.stiker_wait = '*⫹⫺ Stiker sedang dibuat...*'
 global.packname = 'Made by'
-global.author = 'Putbotz'
+global.author = 'iYeen by Putbotz'
 global.alpiskey = 'YOUR_APIKEY_HERE' //daftar sendiri jika key habis https://alpis.eu.org
 
-global.btc = 'YOUR_APIKEY_HERE' //Daftar terlebih dahulu https://api.botcahx.live
+global.btc = 'putxd' //Daftar terlebih dahulu https://api.botcahx.live
 global.lann = 'YOUR_APIKEY_HERE' //Note Key Ini Hanya Bertahan Selama 4 Day Sejak Config.js update! lebih baik register di https://api.betabotz.me
 global.APIs = { 
   tio: 'https://api.botcahx.live',
   alpis: 'https://alpis.eu.org'
 }
 global.APIKeys = { 
-  'https://api.botcahx.live': 'YOUR_APIKEY_HERE' //isi apikey mu https://api.botcahx.live
+  'https://api.botcahx.live': 'putxd' //isi apikey mu https://api.botcahx.live
 }
 
 global.multiplier = 45
