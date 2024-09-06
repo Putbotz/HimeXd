@@ -1,4 +1,4 @@
-8const { BufferJSON, 
+const { BufferJSON, 
 WA_DEFAULT_EPHEMERAL, 
 generateWAMessageFromContent, 
 proto, 
@@ -50,7 +50,7 @@ const defaultMenu = {
 *- About Bot -*
 ┌ ◦ *Creator* : *iYeen*
 │ ◦ *Instagram* : *ainull.zulaikhaa*
-└ ◦ *More About Put?* : rieslark-web.vercel.app
+└ ◦ *More About me?* : rieslark-web.vercel.app
 
 *- User Info -*
 ┌ ◦ *Name* : %name
@@ -173,7 +173,7 @@ text = typeof conn.menu == 'string' ? conn.menu : typeof conn.menu == 'object' ?
                         mediaType: 1,
                         previewType: 0,
                         renderLargerThumbnail: true,
-                        thumbnailUrl: 'https://tmpfiles.org/dl/12300878/tmp.jpg',
+                        thumbnailUrl: 'https://telegra.ph/file/b365817c2a90760f63523.jpg',
                         sourceUrl: 'https://rieslark-web.vercel.app'
                     }
                 }, mentions: [m.sender]
@@ -197,4 +197,4 @@ function clockString(ms) {
   let m = isNaN(ms) ? '--' : Math.floor(ms / 60000) % 60
   let s = isNaN(ms) ? '--' : Math.floor(ms / 1000) % 60
   return [h, m, s].map(v => v.toString().padStart(2, 0)).join(':')
-}
+        }
