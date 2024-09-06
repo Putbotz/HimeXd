@@ -48,8 +48,8 @@ const defaultMenu = {
 └ ◦ *Runtime* : %muptime
 
 *- About Bot -*
-┌ ◦ *Creator* : *Putbotz*
-│ ◦ *Instagram put* : *whooputt*
+┌ ◦ *Creator* : *iYeen*
+│ ◦ *Instagram* : *ainull.zulaikhaa*
 └ ◦ *More About Put?* : rieslark-web.vercel.app
 
 *- User Info -*
