@@ -1,1 +1,1 @@
-putganteng: node . --autocleartmp 
+putganteng: node . --autoread --autocleartmp
