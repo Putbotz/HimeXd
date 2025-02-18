@@ -1,5 +1,5 @@
 //by put
-global.owner = ['601169466091','601115141235']  
+global.owner = ['601169466091','601117066021']  
 global.mods = ['601169466091'] 
 global.prems = ['601169466091']
 global.nameowner = 'Putbotz'
