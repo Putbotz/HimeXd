@@ -9,7 +9,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
         m.reply(wait);      
 
         try {
-            const response = await axios.get(`https://api.botcahx.eu.org/api/dowloader/tiktok?url=${text}&apikey=PutXd`);
+            const response = await axios.get(`https://api.botcahx.eu.org/api/dowloader/tiktok?url=${text}&apikey=${btc}`);
             const res = response.data.result;      
             var { video, title, title_audio, audio } = res;
             if (!video[0]) {
