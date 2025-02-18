@@ -2,8 +2,9 @@ let handler = async m => {
 
 let krtu = `web`
 m.reply(`
-> https://api.botcahx.live
-> https://tiodevhost.my.id
+> https://puputvercel.app/#about
+> https://putplaylist.vercel.app/
+> https://rieslark-web.vercel.app/
 
 `.trim()) 
 }
