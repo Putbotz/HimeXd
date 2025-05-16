@@ -1,31 +1,58 @@
-const http = require('http');
+const cluster = require('cluster');
+const { spawn } = require('child_process');
+const path = require('path');
+const fs = require('fs');
 const os = require('os');
 const express = require('express');
 const app = express();
-const port = process.env.PORT || 3306;
 
-console.log('\x1b[33m%s\x1b[0m', `🌐 Port ${port} is open`);
-app.get('/', (req, res) => {
-res.setHeader('Content-Type', 'application/json');
-  const data = {
-    status: 'true',
-    message: 'Bot Successfully Activated!',
-    author: 'BOTCAHX'
-  };
-  const result = {
-    response: data
-  };
-res.send(JSON.stringify(result, null, 2));
-});
-app.listen(port, () => {
-  console.log(`Listening on port ${port}`);
-});
+// Express.js 
+const ports = [4000, 3000, 5000, 8000, 8080, 4444];
+let availablePortIndex = 0;
 
+function checkPort(port) {
+  return new Promise((resolve, reject) => {
+    const server = app.listen(port, () => {
+      server.close();
+      resolve(true);
+    });
+    server.on('error', reject);
+  });
+}
 
-const cluster = require("cluster");
-const { spawn } = require("child_process");
-const path = require("path");
-const fs = require("fs");
+async function startServer() {
+  const port = ports[availablePortIndex];
+  const isPortAvailable = await checkPort(port);
+
+  if (isPortAvailable) {
+    console.log('\x1b[33m%s\x1b[0m', `🌐 Port ${port} is open`);
+    app.get('/', (req, res) => {
+      res.setHeader('Content-Type', 'application/json');
+      const data = {
+        status: 'true',
+        message: 'Bot Successfully Activated!',
+        author: 'BOTCAHX'
+      };
+      const result = {
+        response: data
+      };
+      res.send(JSON.stringify(result, null, 2));
+    });
+  } else {
+    console.log(`Port ${port} is already in use. Trying another port...`);
+    availablePortIndex++;
+
+    if (availablePortIndex >= ports.length) {
+      console.log('No more available ports. Exiting...');
+      process.exit(1);
+    } else {
+      ports[availablePortIndex] = parseInt(port) + 1;
+      startServer();
+    }
+  }
+}
+
+startServer();
 
 let isRunning = false;
 
@@ -55,11 +82,13 @@ function start(file) {
   p.on("exit", (code) => {
     isRunning = false;
     console.error('\x1b[31m%s\x1b[0m', `Exited with code: ${code}`);
+    start('main.js');
 
     if (code === 0) return;
 
     fs.watchFile(args[0], () => {
       fs.unwatchFile(args[0]);
+	  console.error('\x1b[31m%s\x1b[0m', `File ${args[0]} has been modified. Script will restart...`);
       start("main.js");
     });
   });
@@ -68,6 +97,7 @@ function start(file) {
     console.error('\x1b[31m%s\x1b[0m', `Error: ${err}`);
     p.kill();
     isRunning = false;
+    console.error('\x1b[31m%s\x1b[0m', `Error occurred. Script will restart...`);
     start("main.js");
   });
 
@@ -93,13 +123,21 @@ function start(file) {
   const freeRamInGB = os.freemem() / (1024 * 1024 * 1024);
   console.log(`💽 \x1b[33mFree RAM: ${freeRamInGB.toFixed(2)} GB\x1b[0m`);
   console.log('\x1b[33m%s\x1b[0m', `📃 Script by BOTCAHX`);
+  console.log('\x1b[33m%s\x1b[0m', `🔗 Github: https://github.com/BOTCAHX/RTXZY-MD`);	
 
   setInterval(() => {}, 1000);
 }
 
 start("main.js");
 
-process.on('unhandledRejection', () => {
+const tmpDir = './tmp';
+  if (!fs.existsSync(tmpDir)) {
+    fs.mkdirSync(tmpDir);
+    console.log('\x1b[33m%s\x1b[0m', `📁 Created directory ${tmpDir}`);
+}
+
+process.on('unhandledRejection', (reason) => {
+  console.error('\x1b[31m%s\x1b[0m', `Unhandled promise rejection: ${reason}`);
   console.error('\x1b[31m%s\x1b[0m', 'Unhandled promise rejection. Script will restart...');
   start('main.js');
 });
